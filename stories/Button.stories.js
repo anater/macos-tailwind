@@ -1,50 +1,77 @@
-import { createButton } from './Button';
+import "../site/styles.src.css";
 
-// More on how to set up stories at: https://storybook.js.org/docs/7.0/html/writing-stories/introduction
 export default {
-  title: 'Example/Button',
-  tags: ['autodocs'],
-  render: ({ label, ...args }) => {
-    // You can either use a function to create DOM elements or use a plain html string!
-    // return `<div>${label}</div>`;
-    return createButton({ label, ...args });
+  title: "Controls/Push Buttons",
+  tags: ["autodocs"],
+  render: ({ primary, disabled }) => {
+    return disabled
+      ? `
+        <button disabled class="
+          rounded 
+          py-0.5
+          px-2
+          text-sm
+          shadow-sm
+          active:bg-gray-100
+          disabled:pointer-events-none
+          disabled:opacity-40"
+        >
+          Disabled
+        </button>
+        `
+      : primary
+      ? `
+        <button class="
+          rounded
+          py-0.5
+          px-2
+          text-sm
+          shadow-sm
+          text-white
+          shadow-default-dark
+          bg-default-light
+          bg-gradient-to-b
+          from-transparent-white
+          to-transparent
+          active:from-transparent-black"
+        >
+          Primary
+        </button>`
+      : `
+        <button class="
+          rounded
+          py-0.5
+          px-2
+          text-sm
+          shadow-sm
+          active:bg-gray-100"
+        >
+          Secondary
+        </button>`;
   },
   argTypes: {
-    backgroundColor: { control: 'color' },
-    label: { control: 'text' },
-    onClick: { action: 'onClick' },
-    primary: { control: 'boolean' },
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-    },
+    primary: false,
+    disabled: false,
   },
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/7.0/html/writing-stories/args
 export const Primary = {
   args: {
     primary: true,
-    label: 'Button',
+    disabled: false,
   },
 };
 
 export const Secondary = {
   args: {
-    label: 'Button',
+    primary: false,
+    disabled: false,
   },
 };
 
-export const Large = {
+export const Disabled = {
   args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
+    primary: false,
+    disabled: true,
   },
 };

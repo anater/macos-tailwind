@@ -2,7 +2,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./site/**/*.{html,js}"],
+  content: ["./site/**/*.{html,js}", "./stories/**/*.{html,js}"],
   // default config: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7
   theme: {
     extend: {
@@ -20,6 +20,8 @@ module.exports = {
         md: "0px 0.5px 3px 0 rgb(255 255 255 / 0.12), 0px 1px 2px 0 rgb(255 255 255 / 0.12), 0px 0.5px 1px 0 rgb(255 255 255 / 0.24)",
       },
       colors: {
+        "transparent-white": "rgb(255 255 255 / 0.13)",
+        "transparent-black": "rgb(0 0 0 / 0.13)",
         gray: {
           100: "rgb(240, 240, 240)",
         },
