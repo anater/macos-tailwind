@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .font-large-title {
+    font: -apple-system-title0;
+  }
+
+  .font-title-1 {
+    font: -apple-system-title1;
+  }
+
+  .font-title-2 {
+    font: -apple-system-title2;
+  }
+
+  .font-title-3 {
+    font: -apple-system-title3;
+  }
+
+  .font-headline {
+    font: -apple-system-headline;
+  }
+
+  .font-body {
+    font: -apple-system-body;
+  }
+
+  .font-callout {
+    font: -apple-system-short-subheadline;
+  }
+
+  .font-subheadline {
+    font: -apple-system-subheadline;
+  }
+
+  .font-footnote {
+    font: -apple-system-footnote;
+  }
+
+  .font-caption-1 {
+    font: -apple-system-caption1;
+  }
+
+  .font-caption-2 {
+    font: -apple-system-caption2;
+  }
+}

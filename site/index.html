@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="antialiased">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./styles.css" rel="stylesheet" />
+</head>
+
+<body class="flex space-x-10 p-5">
+  <!-- Tailwind -->
+  <section class="space-y-6">
+    <div class="space-y-1">
+      <h1 class="text-3xl">LargeTitle</h1>
+      <h1 class="text-3xl font-bold">LargeTitle</h1>
+    </div>
+
+    <div class="space-y-1">
+      <h2 class="text-2xl">Title1</h2>
+      <h2 class="text-2xl font-bold">Title1</h2>
+    </div>
+
+    <div class="space-y-1">
+      <h3 class="text-xl">Title2</h3>
+      <h3 class="text-xl font-bold">Title2</h3>
+    </div>
+
+    <div class="space-y-1">
+      <h4 class="text-lg">Title3</h4>
+      <h4 class="text-lg font-bold">Title3</h4>
+    </div>
+
+    <div class="space-y-1">
+      <h5 class="text-base font-semibold">Headline</h5>
+      <h5 class="text-base font-extrabold">Headline</h5>
+    </div>
+
+    <div class="space-y-1">
+      <p class="text-base">Body</p>
+      <p class="text-base font-semibold">Body</p>
+    </div>
+
+    <div class="space-y-1">
+      <p class="text-sm">Callout</p>
+      <p class="text-sm font-semibold">Callout</p>
+    </div>
+
+    <div class="space-y-1">
+      <h6 class="text-sm">Subhedline</h6>
+      <h6 class="text-sm font-semibold">Subhedline</h6>
+    </div>
+
+    <div class="space-y-1">
+      <p class="text-xs">Footnote</p>
+      <p class="text-xs font-semibold">Footnote</p>
+    </div>
+
+    <div class="space-y-1">
+      <p class="text-xs">Caption1</p>
+      <p class="text-xs font-semibold">Caption1</p>
+    </div>
+
+    <div class="space-y-1">
+      <p class="text-xs">Caption2</p>
+      <p class="text-xs font-semibold">Caption2</p>
+    </div>
+  </section>
+
+  <!-- Apple System -->
+  <section class="space-y-6">
+    <div class="space-y-1">
+      <h1 class="font-large-title">LargeTitle</h1>
+      <h1 class="font-large-title font-bold">LargeTitle</h1>
+    </div>
+
+    <div class="space-y-1">
+      <h2 class="font-title-1">Title1</h2>
+      <h2 class="font-title-1 font-bold">Title1</h2>
+    </div>
+
+    <div class="space-y-1">
+      <h3 class="font-title-2">Title2</h3>
+      <h3 class="font-title-2 font-bold">Title2</h3>
+    </div>
+
+    <div class="space-y-1">
+      <h4 class="font-title-3">Title3</h4>
+      <h4 class="font-title-3 font-bold">Title3</h4>
+    </div>
+
+    <div class="space-y-1">
+      <h5 class="font-headline font-semibold">Headline</h5>
+      <h5 class="font-headline font-extrabold">Headline</h5>
+    </div>
+
+    <div class="space-y-1">
+      <p class="font-body">Body</p>
+      <p class="font-body font-semibold">Body</p>
+    </div>
+
+    <div class="space-y-1">
+      <p class="font-callout">Callout</p>
+      <p class="font-callout font-semibold">Callout</p>
+    </div>
+
+    <div class="space-y-1">
+      <h6 class="font-subheadline">Subhedline</h6>
+      <h6 class="font-subheadline font-semibold">Subhedline</h6>
+    </div>
+
+    <div class="space-y-1">
+      <p class="font-footnote">Footnote</p>
+      <p class="font-footnote font-semibold">Footnote</p>
+    </div>
+
+    <div class="space-y-1">
+      <p class="font-caption-1">Caption1</p>
+      <p class="font-caption-1 font-semibold">Caption1</p>
+    </div>
+
+    <div class="space-y-1">
+      <p class="font-caption-2">Caption2</p>
+      <p class="font-caption-2 font-semibold">Caption2</p>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <p>Push</p>
+    <div class="flex items-center space-x-3">
+      <template name="push-buttons"></template>
+    </div>
+
+    <p>Toggle</p>
+    <div class="flex items-center space-x-3">
+      <template name="toggle-buttons"></template>
+    </div>
+
+    <p>Combobox</p>
+    <div class="flex items-center space-x-3">
+      <template name="combobox"></template>
+    </div>
+  </section>
+</body>
+<script>
+  const press = (e) => {
+    const isPressed = e.getAttribute("aria-pressed") === "true";
+    e.setAttribute("aria-pressed", !isPressed);
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const templates = document.querySelectorAll("template[name]");
+
+    templates.forEach(async (t) => {
+      const name = t.getAttribute("name");
+      t.outerHTML = await fetch(`./templates/${name}.html`).then((r) =>
+        r.text()
+      );
+    });
+  });
+</script>
+
+</html>
