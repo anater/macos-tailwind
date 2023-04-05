@@ -1,4 +1,4 @@
-import "../site/styles.src.css";
+import "../site/styles.src.css"
 
 export default {
   title: "Controls/Push Buttons",
@@ -47,31 +47,31 @@ export default {
           active:bg-gray-100"
         >
           Secondary
-        </button>`;
+        </button>`
   },
   argTypes: {
     primary: false,
     disabled: false,
   },
-};
+}
 
 export const Primary = {
   args: {
     primary: true,
     disabled: false,
   },
-};
+}
 
 export const Secondary = {
   args: {
     primary: false,
     disabled: false,
   },
-};
+}
 
 export const Disabled = {
   args: {
     primary: false,
     disabled: true,
   },
-};
+}
