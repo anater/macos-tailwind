@@ -504,48 +504,11 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.font-large-title {
-  font: -apple-system-title0;
-}
-
-.font-title-1 {
-  font: -apple-system-title1;
-}
-
-.font-title-2 {
-  font: -apple-system-title2;
-}
-
-.font-title-3 {
-  font: -apple-system-title3;
-}
-
-.font-headline {
-  font: -apple-system-headline;
-}
-
-.font-body {
-  font: -apple-system-body;
-}
-
-.font-callout {
-  font: -apple-system-short-subheadline;
-}
-
-.font-subheadline {
-  font: -apple-system-subheadline;
-}
-
-.font-footnote {
-  font: -apple-system-footnote;
-}
-
-.font-caption-1 {
-  font: -apple-system-caption1;
-}
-
-.font-caption-2 {
-  font: -apple-system-caption2;
+.button-icon {
+  background-image: var(--button-icon-url);
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
 }
 
 .pointer-events-none {
@@ -562,6 +525,10 @@ video {
   margin-right: 0.25rem;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
 }
@@ -572,6 +539,12 @@ video {
 
 .w-4 {
   width: 1rem;
+}
+
+.appearance-none {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .items-center {
@@ -673,6 +646,19 @@ video {
   padding-bottom: 0px;
 }
 
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pr-6 {
+  padding-right: 1.5rem;
+}
+
 .text-3xl {
   font-size: 1.625rem;
   line-height: 1.9375rem;
@@ -720,6 +706,10 @@ video {
   font-weight: 800;
 }
 
+.leading-4 {
+  line-height: 1rem;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -751,15 +741,53 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.font-large-title {
+  font: -apple-system-title0;
+}
+
+.font-title-1 {
+  font: -apple-system-title1;
+}
+
+.font-title-2 {
+  font: -apple-system-title2;
+}
+
+.font-title-3 {
+  font: -apple-system-title3;
+}
+
+.font-headline {
+  font: -apple-system-headline;
+}
+
+.font-body {
+  font: -apple-system-body;
+}
+
+.font-callout {
+  font: -apple-system-short-subheadline;
+}
+
+.font-subheadline {
+  font: -apple-system-subheadline;
+}
+
+.font-footnote {
+  font: -apple-system-footnote;
+}
+
+.font-caption-1 {
+  font: -apple-system-caption1;
+}
+
+.font-caption-2 {
+  font: -apple-system-caption2;
+}
+
 .active\:bg-gray-100:active {
   --tw-bg-opacity: 1;
   background-color: rgb(240 240 240 / var(--tw-bg-opacity));
-}
-
-.active\:from-black:active {
-  --tw-gradient-from: #000;
-  --tw-gradient-to: rgb(0 0 0 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .active\:from-transparent-black:active {
@@ -780,6 +808,11 @@ video {
   opacity: 0.4;
 }
 
+.pressed\:bg-default-light[aria-pressed=true] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
+}
+
 .pressed\:bg-gradient-to-b[aria-pressed=true] {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -790,8 +823,18 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.pressed\:from-transparent-white[aria-pressed=true] {
+  --tw-gradient-from: rgb(255 255 255 / 0.13);
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .pressed\:to-default-light[aria-pressed=true] {
   --tw-gradient-to: #007AFF;
+}
+
+.pressed\:to-transparent[aria-pressed=true] {
+  --tw-gradient-to: transparent;
 }
 
 .pressed\:text-white[aria-pressed=true] {
@@ -808,6 +851,12 @@ video {
   --tw-shadow: 0px 0.5px 3px 0 rgb(255 255 255 / 0.12), 0px 1px 2px 0 rgb(255 255 255 / 0.12), 0px 0.5px 1px 0 rgb(255 255 255 / 0.24);
   --tw-shadow-colored: 0px 0.5px 3px 0 var(--tw-shadow-color), 0px 1px 2px 0 var(--tw-shadow-color), 0px 0.5px 1px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.pressed\:active\:from-transparent-black:active[aria-pressed=true] {
+  --tw-gradient-from: rgb(0 0 0 / 0.13);
+  --tw-gradient-to: rgb(0 0 0 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .pressed\:active\:to-vibrant-light:active[aria-pressed=true] {

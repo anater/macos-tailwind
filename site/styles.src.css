@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer components {
+  .button-icon {
+    background-image: var(--button-icon-url);
+    background-position-x: right;
+    background-position-y: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer utilities {
   .font-large-title {
     font: -apple-system-title0;
   }
