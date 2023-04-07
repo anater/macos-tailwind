@@ -11,7 +11,7 @@ export default {
           py-0.5
           px-2
           text-sm
-          shadow-sm
+          shadow-md
           active:bg-gray-100
           disabled:pointer-events-none
           disabled:opacity-40"
@@ -26,9 +26,9 @@ export default {
           py-0.5
           px-2
           text-sm
-          shadow-sm
+          shadow-md
+          shadow-default-light/20
           text-white
-          shadow-default-dark
           bg-default-light
           bg-gradient-to-b
           from-transparent-white
@@ -43,7 +43,7 @@ export default {
           py-0.5
           px-2
           text-sm
-          shadow-sm
+          shadow-md
           active:bg-gray-100"
         >
           Secondary

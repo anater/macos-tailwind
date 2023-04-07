@@ -5,17 +5,18 @@ import PullDownButtonSecondaryIcon from "./assets/PullDownButtonSecondaryIcon.sv
 export default {
   title: "Controls/Pull Down Buttons",
   tags: ["autodocs"],
-  render: ({ primary, disabled }) => {
+  render: ({ primary, disabled, expanded }) => {
     const icon = primary
       ? PullDownButtonPrimaryIcon
       : PullDownButtonSecondaryIcon
     const disabledAttr = disabled ? "disabled" : ""
+    const hiddenAttr = !expanded || disabled ? "hidden" : ""
 
     return `<button ${disabledAttr}
       id=menubutton
       aria-haspopup=true
       aria-controls=menu
-      aria-expanded=true
+      aria-expanded=${!expanded}
       style="--button-icon-url: url('${icon}')"
       class="
         button-icon
@@ -26,7 +27,8 @@ export default {
         pr-6
         py-0.5
         text-sm
-        shadow-sm
+        shadow-md
+        bg-white
         active:bg-gray-100
         disabled:pointer-events-none
         disabled:opacity-40"
@@ -39,7 +41,7 @@ export default {
       Menu
     </button>
     
-    <ul 
+    <ul ${hiddenAttr}
       id=menu
       role=menu
       aria-labelledby=menubutton
@@ -47,19 +49,30 @@ export default {
         rounded-lg
         w-max
         mt-2
-        p-2
+        p-[5px]
         border-0.5
-        border-transparent-black
+        border-very-transparent-black
         bg-material-menu
         backdrop-blur-xl
         shadow-menu
-        text-base
-        space-y-2"
+        text-base"
     >
       ${["One", "Two", "Three"]
         .map(
           (item) => /*html*/ `
-            <li role=menuitem class="rounded py-1 px-2 cursor-default hover:bg-default-light hover:text-white">
+            <li
+              role=menuitem
+              tabIndex=0
+              class="
+                rounded-md
+                py-1
+                px-[6px]
+                cursor-default
+                focus:bg-default-light
+                focus:text-white
+                hover:bg-default-light
+                hover:text-white"
+                >
               Item ${item}
             </li>`
         )
@@ -69,6 +82,7 @@ export default {
   argTypes: {
     primary: false,
     disabled: false,
+    expanded: false,
   },
 }
 
@@ -76,6 +90,7 @@ export const Primary = {
   args: {
     primary: true,
     disabled: false,
+    expanded: false,
   },
 }
 
@@ -83,6 +98,7 @@ export const Secondary = {
   args: {
     primary: false,
     disabled: false,
+    expanded: false,
   },
 }
 
@@ -90,5 +106,6 @@ export const Disabled = {
   args: {
     primary: false,
     disabled: true,
+    expanded: false,
   },
 }

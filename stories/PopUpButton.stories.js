@@ -21,7 +21,7 @@ export default {
         pr-6
         py-0.5
         text-sm
-        shadow-sm
+        shadow-md
         active:bg-gray-100
         disabled:pointer-events-none
         disabled:opacity-40"

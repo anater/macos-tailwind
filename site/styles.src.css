@@ -6,7 +6,7 @@
   .button-icon {
     background-image: var(--button-icon-url);
     background-position-x: right;
-    background-position-y: center;
+    background-position-y: -1px;
     background-repeat: no-repeat;
   }
 }

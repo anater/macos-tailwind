@@ -12,7 +12,7 @@ export default {
           py-0.5
           px-2
           text-sm
-          shadow-sm
+          shadow-md
           active:bg-gray-100
           disabled:pointer-events-none
           disabled:opacity-40"
@@ -29,15 +29,15 @@ export default {
             py-0.5
             px-2
             text-sm
-            shadow-sm
+            shadow-md
             active:bg-gray-100
+            pressed:text-white
             pressed:bg-gradient-to-b
             pressed:bg-default-light
             pressed:from-transparent-white
             pressed:to-transparent
             pressed:active:from-transparent-black
-            pressed:text-white
-            pressed:shadow-md
+            pressed:shadow-default-light/20
           "
         >
           Primary
@@ -51,7 +51,7 @@ export default {
             py-[1.5px]
             px-2
             text-sm
-            shadow-sm
+            shadow-md
             active:bg-gray-100
             pressed:text-default-light"
         >
