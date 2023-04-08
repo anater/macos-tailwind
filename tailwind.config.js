@@ -16,7 +16,7 @@ module.exports = {
         "3xl": ["1.625rem", { lineHeight: "1.9375rem" }],
       },
       boxShadow: {
-        sm: "0px 0.25px 0.25px 0px rgb(0 0 0 / 0.15), 0px 1px 0.75px 0px rgb(0 0 0 / 0.05), 0px 0px 0px 0.5px rgb(0 0 0 / 0.05)",
+        sm: "0px 0.25px 0.25px 0px rgb(0 0 0 / 0.15), 0px 1px 0.75px 0px rgb(0 0 0 / 0.05)",
         md: "0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24)",
         menu: "inset 0px 0.5px 1px 0px rgba(255 255 255 / 0.5), 0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18)",
       },
