@@ -18,6 +18,8 @@ module.exports = {
       boxShadow: {
         sm: "0px 0.25px 0.25px 0px rgb(0 0 0 / 0.15), 0px 1px 0.75px 0px rgb(0 0 0 / 0.05)",
         md: "0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24)",
+        tooltip:
+          "0px 36px 100px 0px rgb(0 0 0 / 0.25), 0px 0px 3px 0px rgb(0 0 0 / 0.55)",
         menu: "inset 0px 0.5px 1px 0px rgba(255 255 255 / 0.5), 0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18)",
       },
       borderWidth: {
@@ -40,6 +42,7 @@ module.exports = {
         },
         material: {
           menu: "rgb(0 0 0 / 0.04)",
+          tooltip: "rgb(246 246 246 / .6)",
         },
       },
     },

@@ -562,10 +562,6 @@ video {
   height: 1.25rem;
 }
 
-.h-\[6px\] {
-  height: 6px;
-}
-
 .h-full {
   height: 100%;
 }
@@ -578,8 +574,8 @@ video {
   width: 1.25rem;
 }
 
-.w-\[6px\] {
-  width: 6px;
+.w-full {
+  width: 100%;
 }
 
 .w-max {
@@ -591,8 +587,9 @@ video {
   width: 0.75rem;
 }
 
-.w-full {
-  width: 100%;
+.max-w-max {
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 
 .flex-1 {
@@ -705,10 +702,6 @@ video {
   border-color: rgb(0 0 0 / 0.06);
 }
 
-.bg-black\/50 {
-  background-color: rgb(0 0 0 / 0.5);
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -721,6 +714,10 @@ video {
 .bg-default-light {
   --tw-bg-opacity: 1;
   background-color: rgb(0 122 255 / var(--tw-bg-opacity));
+}
+
+.bg-material-tooltip {
+  background-color: rgb(246 246 246 / .6);
 }
 
 .bg-gradient-to-b {
@@ -913,6 +910,12 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-tooltip {
+  --tw-shadow: 0px 36px 100px 0px rgb(0 0 0 / 0.25), 0px 0px 3px 0px rgb(0 0 0 / 0.55);
+  --tw-shadow-colored: 0px 36px 100px 0px var(--tw-shadow-color), 0px 0px 3px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-default-light\/20 {
   --tw-shadow-color: rgb(0 122 255 / 0.2);
   --tw-shadow: var(--tw-shadow-colored);
@@ -1031,11 +1034,6 @@ video {
 
 .active\:to-vibrant-light:active {
   --tw-gradient-to: #0070F5;
-}
-
-.before\:active\:bg-black\/80:active::before {
-  content: var(--tw-content);
-  background-color: rgb(0 0 0 / 0.8);
 }
 
 .disabled\:pointer-events-none:disabled {
