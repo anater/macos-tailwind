@@ -511,6 +511,12 @@ video {
   background-repeat: no-repeat;
 }
 
+.checkbox-icon {
+  background-image: var(--checkbox-icon-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 .pointer-events-none {
   pointer-events: none;
 }
@@ -534,6 +540,10 @@ video {
   margin-right: auto;
 }
 
+.ml-\[6px\] {
+  margin-left: 6px;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -550,12 +560,20 @@ video {
   display: flex;
 }
 
+.inline-flex {
+  display: inline-flex;
+}
+
 .hidden {
   display: none;
 }
 
 .h-4 {
   height: 1rem;
+}
+
+.h-\[14px\] {
+  height: 14px;
 }
 
 .h-5 {
@@ -568,6 +586,10 @@ video {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-\[14px\] {
+  width: 14px;
 }
 
 .w-5 {
@@ -694,12 +716,21 @@ video {
   border-width: 0px;
 }
 
+.border-black\/20 {
+  border-color: rgb(0 0 0 / 0.2);
+}
+
 .border-black\/5 {
   border-color: rgb(0 0 0 / 0.05);
 }
 
 .border-very-transparent-black {
   border-color: rgb(0 0 0 / 0.06);
+}
+
+.bg-default-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -709,11 +740,6 @@ video {
 
 .bg-material-menu {
   background-color: rgb(0 0 0 / 0.04);
-}
-
-.bg-default-light {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
 }
 
 .bg-material-tooltip {
@@ -904,6 +930,12 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-checkbox {
+  --tw-shadow: inset 0px 1px 2px 0px rgb(0 0 0 / 0.1), inset 0px 0px 2px 0px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: inset 0px 1px 2px 0px var(--tw-shadow-color), inset 0px 0px 2px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-menu {
   --tw-shadow: inset 0px 0.5px 1px 0px rgba(255 255 255 / 0.5), 0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18);
   --tw-shadow-colored: inset 0px 0.5px 1px 0px var(--tw-shadow-color), 0px 2px 4px 0px var(--tw-shadow-color), 0px 8px 15px 6px var(--tw-shadow-color);
@@ -994,6 +1026,32 @@ video {
 .before\:bg-black\/50::before {
   content: var(--tw-content);
   background-color: rgb(0 0 0 / 0.5);
+}
+
+.checked\:checkbox-icon:checked {
+  background-image: var(--checkbox-icon-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.checked\:border-0:checked {
+  border-width: 0px;
+}
+
+.checked\:bg-default-light:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
+}
+
+.checked\:shadow-md:checked {
+  --tw-shadow: 0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24);
+  --tw-shadow-colored: 0px 0.5px 3px 0px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color), 0px 0.5px 1px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.checked\:shadow-default-light\/20:checked {
+  --tw-shadow-color: rgb(0 122 255 / 0.2);
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .hover\:bg-default-light:hover {

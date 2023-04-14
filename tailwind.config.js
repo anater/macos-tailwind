@@ -21,6 +21,8 @@ module.exports = {
         tooltip:
           "0px 36px 100px 0px rgb(0 0 0 / 0.25), 0px 0px 3px 0px rgb(0 0 0 / 0.55)",
         menu: "inset 0px 0.5px 1px 0px rgba(255 255 255 / 0.5), 0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18)",
+        checkbox:
+          "inset 0px 1px 2px 0px rgb(0 0 0 / 0.1), inset 0px 0px 2px 0px rgb(0 0 0 / 0.1)",
       },
       borderWidth: {
         0.5: "0.5px",

@@ -9,6 +9,12 @@
     background-position-y: -1px;
     background-repeat: no-repeat;
   }
+ 
+  .checkbox-icon {
+    background-image: var(--checkbox-icon-url);
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 }
 
 @layer utilities {
