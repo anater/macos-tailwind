@@ -511,12 +511,6 @@ video {
   background-repeat: no-repeat;
 }
 
-.checkbox-icon {
-  background-image: var(--checkbox-icon-url);
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
 .pointer-events-none {
   pointer-events: none;
 }
@@ -728,11 +722,6 @@ video {
   border-color: rgb(0 0 0 / 0.06);
 }
 
-.bg-default-light {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -740,6 +729,11 @@ video {
 
 .bg-material-menu {
   background-color: rgb(0 0 0 / 0.04);
+}
+
+.bg-default-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
 }
 
 .bg-material-tooltip {
@@ -1043,6 +1037,10 @@ video {
   background-color: rgb(0 122 255 / var(--tw-bg-opacity));
 }
 
+.checked\:bg-\[url\(\'\$\{CheckboxPrimaryIcon\}\'\)\]:checked {
+  background-image: url('${CheckboxPrimaryIcon}');
+}
+
 .checked\:shadow-md:checked {
   --tw-shadow: 0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24);
   --tw-shadow-colored: 0px 0.5px 3px 0px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color), 0px 0.5px 1px 0px var(--tw-shadow-color);
@@ -1050,6 +1048,42 @@ video {
 }
 
 .checked\:shadow-default-light\/20:checked {
+  --tw-shadow-color: rgb(0 122 255 / 0.2);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.indeterminate\:checkbox-icon:indeterminate {
+  background-image: var(--checkbox-icon-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.indeterminate\:indeterminate-icon:indeterminate {
+  background-image: var(--checkbox-icon-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.indeterminate\:border-0:indeterminate {
+  border-width: 0px;
+}
+
+.indeterminate\:bg-default-light:indeterminate {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
+}
+
+.indeterminate\:bg-\[url\(\'\$\{CheckboxIndeterminatePrimaryIcon\}\'\)\]:indeterminate {
+  background-image: url('${CheckboxIndeterminatePrimaryIcon}');
+}
+
+.indeterminate\:shadow-md:indeterminate {
+  --tw-shadow: 0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24);
+  --tw-shadow-colored: 0px 0.5px 3px 0px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color), 0px 0.5px 1px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.indeterminate\:shadow-default-light\/20:indeterminate {
   --tw-shadow-color: rgb(0 122 255 / 0.2);
   --tw-shadow: var(--tw-shadow-colored);
 }
