@@ -1,6 +1,6 @@
 import "../site/styles.src.css"
 import RadioPrimaryIcon from "./assets/RadioPrimaryIcon.svg"
-import CheckboxIndeterminatePrimaryIcon from "./assets/CheckboxIndeterminatePrimaryIcon.svg"
+import IndeterminatePrimaryIcon from "./assets/IndeterminatePrimaryIcon.svg"
 
 const cssUrl = (string) => `url(\'${string}\')`
 
@@ -18,7 +18,7 @@ export default {
 
     const checkedIcon = cssUrl(RadioPrimaryIcon)
     const initialIcon = indeterminate
-      ? cssUrl(CheckboxIndeterminatePrimaryIcon)
+      ? cssUrl(IndeterminatePrimaryIcon)
       : checkedIcon
 
     return `
