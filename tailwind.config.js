@@ -3,6 +3,7 @@ const plugin = require("tailwindcss/plugin")
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./site/**/*.{html,js}", "./stories/**/*.{html,js}"],
+  mode: "jit",
   // default config: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7
   theme: {
     extend: {
@@ -23,6 +24,8 @@ module.exports = {
         menu: "inset 0px 0.5px 1px 0px rgba(255 255 255 / 0.5), 0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18)",
         checkbox:
           "inset 0px 1px 2px 0px rgb(0 0 0 / 0.1), inset 0px 0px 2px 0px rgb(0 0 0 / 0.1)",
+        switch:
+          "inset 0px 0px 1px 0px rgb(0 0 0 / 0.05), inset 0px 0px 2px 0.25px rgb(0 0 0 / 0.08)",
       },
       borderWidth: {
         0.5: "0.5px",
