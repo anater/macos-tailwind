@@ -14,10 +14,22 @@ export default {
         width="${radius * 2}"
       >
         <circle
-          stroke="blue"
+          class="stroke-black/5"
           stroke-dasharray="${circumference} ${circumference}"
-          style="stroke-dashoffset:${offset}"
+          stroke-dashoffset="0"
           stroke-width="${stroke}"
+          stroke-linecap="round"
+          fill="transparent"
+          r="${normalizedRadius}"
+          cx="${radius}"
+          cy="${radius}"
+        />
+        <circle
+          class="stroke-default-light"
+          stroke-dasharray="${circumference} ${circumference}"
+          stroke-dashoffset="${offset}"
+          stroke-width="${stroke}"
+          stroke-linecap="round"
           fill="transparent"
           r="${normalizedRadius}"
           cx="${radius}"

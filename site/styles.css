@@ -816,6 +816,14 @@ video {
   --tw-gradient-to: #fff;
 }
 
+.stroke-default-light {
+  stroke: #007AFF;
+}
+
+.stroke-black\/5 {
+  stroke: rgb(0 0 0 / 0.05);
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
