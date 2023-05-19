@@ -26,6 +26,8 @@ module.exports = {
           "inset 0px 1px 2px 0px rgb(0 0 0 / 0.1), inset 0px 0px 2px 0px rgb(0 0 0 / 0.1)",
         switch:
           "inset 0px 0px 1px 0px rgb(0 0 0 / 0.05), inset 0px 0px 2px 0.25px rgb(0 0 0 / 0.08)",
+        field:
+          "0px 0.5px 0px 0px rgb(0 0 0 / 0.06), 0px 1px 0px 0px rgb(0 0 0 / 0.12)",
       },
       borderWidth: {
         0.5: "0.5px",
