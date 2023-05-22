@@ -6,12 +6,8 @@ export default {
   tags: ["autodocs"],
   render: ({ placeholder, disabled }) => {
     const disabledAttr = disabled ? "disabled" : ""
-    /**
-     * TODO
-     * - style focus ring
-     */
     return `
-    <div class="
+    <div class="${disabled ? `opacity-50` : ``}
       inline-flex
       justify-between
       items-center
@@ -20,13 +16,16 @@ export default {
       border-black/10
       shadow-field
       text-base
-      font-light"
+      font-light
+      ring-default-light/50
+      focus-within:ring"
     >
       <input ${disabledAttr}
         type="text"
         placeholder="${placeholder}"
         class="
           appearance-none
+          outline-none
           flex-grow
           py-0.5
           pl-[7px]
@@ -34,8 +33,12 @@ export default {
           placeholder:text-black/25
           "
       />
-      <button 
-        class="appearance-none flex-shrink-0 m-1"
+      <button
+        class="${disabled ? `hidden` : ``}
+          appearance-none
+          outline-none
+          flex-shrink-0
+          m-1"
         onclick="this.previousElementSibling.value = ''"
       >
         <img src="${ClearButtonIcon}" alt="clear text" />
