@@ -1,4 +1,5 @@
 import "../site/styles.src.css"
+import ClearButtonIcon from "./assets/ClearButtonIcon.svg"
 
 export default {
   title: "Controls/Text Field",
@@ -7,28 +8,38 @@ export default {
     const disabledAttr = disabled ? "disabled" : ""
     /**
      * TODO
-     * - add "clear" button
      * - style focus ring
      */
     return `
-    <div class="relative">
+    <div class="
+      inline-flex
+      justify-between
+      items-center
+      bg-white
+      border-0.5
+      border-black/10
+      shadow-field
+      text-base
+      font-light"
+    >
       <input ${disabledAttr}
         type="text"
         placeholder="${placeholder}"
         class="
           appearance-none
+          flex-grow
           py-0.5
           pl-[7px]
-          bg-white
-          border-0.5
-          border-black/10
-          shadow-field
-          text-base
-          font-light
           placeholder:text-base
           placeholder:text-black/25
           "
       />
+      <button 
+        class="appearance-none flex-shrink-0 m-1"
+        onclick="this.previousElementSibling.value = ''"
+      >
+        <img src="${ClearButtonIcon}" alt="clear text" />
+      </button>
     </div>
     `
   },
