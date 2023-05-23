@@ -41,7 +41,10 @@ export default {
           outline-none
           flex-shrink-0
           m-1"
-        onclick="this.previousElementSibling.value = ''"
+        onclick="
+          this.previousElementSibling.value = ''
+          this.previousElementSibling.focus()
+        "
       >
         <img src="${ClearButtonIcon}" alt="clear text" />
       </button>
