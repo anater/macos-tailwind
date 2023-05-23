@@ -37,13 +37,13 @@ export default {
           "
         oninput="this.nextElementSibling.classList.toggle('opacity-0', this.value.length === 0)"
       />
-      <button
-        class="${disabled ? `hidden` : ``}
-          opacity-0
+      <button ${disabledAttr}
+        class="
           appearance-none
           outline-none
           flex-shrink-0
-          m-1"
+          m-1
+          opacity-0"
         onclick="
           this.previousElementSibling.value = ''
           this.previousElementSibling.focus()
