@@ -32,9 +32,11 @@ export default {
           placeholder:text-base
           placeholder:text-black/25
           "
+        oninput="this.nextElementSibling.classList.toggle('opacity-0', this.value.length === 0)"
       />
       <button
         class="${disabled ? `hidden` : ``}
+          opacity-0
           appearance-none
           outline-none
           flex-shrink-0
