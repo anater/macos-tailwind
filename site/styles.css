@@ -771,6 +771,10 @@ video {
   border-radius: 11px;
 }
 
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
 .border-0\.5 {
   border-width: 0.5px;
 }

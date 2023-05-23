@@ -4,10 +4,13 @@ import ClearButtonIcon from "./assets/ClearButtonIcon.svg"
 export default {
   title: "Controls/Text Field",
   tags: ["autodocs"],
-  render: ({ placeholder, disabled }) => {
+  render: ({ placeholder, disabled, rounded }) => {
     const disabledAttr = disabled ? "disabled" : ""
     return `
-    <div class="${disabled ? `opacity-50` : ``}
+    <div class="
+      ${disabled ? `opacity-50` : ``}
+      ${rounded ? `rounded-[5px]` : ``}
+      overflow-hidden
       inline-flex
       justify-between
       items-center
@@ -61,6 +64,15 @@ export const Default = {
   args: {
     placeholder: "Placeholder",
     disabled: false,
+    rounded: false,
+  },
+}
+
+export const Rounded = {
+  args: {
+    placeholder: "Rounded",
+    disabled: false,
+    rounded: true,
   },
 }
 
@@ -68,5 +80,6 @@ export const Disabled = {
   args: {
     placeholder: "Placeholder",
     disabled: true,
+    rounded: false,
   },
 }
