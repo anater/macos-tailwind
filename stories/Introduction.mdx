@@ -1,221 +1,77 @@
-import { Meta } from "@storybook/blocks";
-import Code from "./assets/code-brackets.svg";
-import Colors from "./assets/colors.svg";
-import Comments from "./assets/comments.svg";
-import Direction from "./assets/direction.svg";
-import Flow from "./assets/flow.svg";
-import Plugin from "./assets/plugin.svg";
-import Repo from "./assets/repo.svg";
-import StackAlt from "./assets/stackalt.svg";
+import { Meta } from "@storybook/blocks"
 
-<Meta title="Example/Introduction" />
+<Meta title="macOS Tailwind" />
 
-<style>
-  {`
-    .subheading {
-      --mediumdark: '#999999';
-      font-weight: 700;
-      font-size: 13px;
-      color: #999;
-      letter-spacing: 6px;
-      line-height: 24px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      margin-top: 40px;
-    }
+# macOS Tailwind
 
-    .link-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
-      row-gap: 10px;
-    }
+This project implements the macOS design system using HTML, the Tailwind CSS framework, and vanilla JS. The goal is to adhere to Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines) and provide a starting point for developers looking to use the macOS design system to build their web UIs.
 
-    @media (min-width: 620px) {
-      .link-list {
-        row-gap: 20px;
-        column-gap: 20px;
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+The project aims to implement all components in the [macOS 13 Sketch Library](https://developer.apple.com/design/resources/#macos-apps), providing a complete set of components to build apps that feel at home in macOS 13.
 
-    @media all and (-ms-high-contrast:none) {
-    .link-list {
-        display: -ms-grid;
-        -ms-grid-columns: 1fr 1fr;
-        -ms-grid-rows: 1fr 1fr;
-      }
-    }
+## Components
 
-    .link-item {
-      display: block;
-      padding: 20px;
-      border: 1px solid #00000010;
-      border-radius: 5px;
-      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
-      color: #333333;
-      display: flex;
-      align-items: flex-start;
-    }
+### Legend
 
-    .link-item:hover {
-      border-color: #1EA7FD50;
-      transform: translate3d(0, -3px, 0);
-      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
-    }
+- ✅ = complete
+- 🚨 = in progress
 
-    .link-item:active {
-      border-color: #1EA7FD;
-      transform: translate3d(0, 0, 0);
-    }
+### Controls
 
-    .link-item strong {
-      font-weight: 700;
-      display: block;
-      margin-bottom: 2px;
-    }
+- push buttons ✅
+- toggle buttons ✅
+- pull down button ✅
+- pop up button ✅
+- icon button ✅
+- stepper button ✅
+- circular slider ✅
+- tooltip ✅
+- checkbox ✅
+- radio button ✅
+- switch ✅
+- progress circular ✅
+- progress bar ✅
+- text field ✅
+- search field ✅
+- segmented control (multi) 🚨
+- segmented control (single)
+- slider
+- slider - ticked
+- color well
+- image well
 
-    .link-item img {
-      height: 40px;
-      width: 40px;
-      margin-right: 15px;
-      flex: none;
-    }
+### Lists
 
-    .link-item span,
-    .link-item p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 20px;
-    }
+- menus
+- large list
+- small list
 
-    .tip {
-      display: inline-block;
-      border-radius: 1em;
-      font-size: 11px;
-      line-height: 12px;
-      font-weight: 700;
-      background: #E7FDD8;
-      color: #66BF3C;
-      padding: 4px 12px;
-      margin-right: 10px;
-      vertical-align: top;
-    }
+### Bars
 
-    .tip-wrapper {
-      font-size: 13px;
-      line-height: 20px;
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
+- standard
+- mono
+- toolbar
+- title bar
+- sidebar
 
-    .tip-wrapper code {
-      font-size: 12px;
-      display: inline-block;
-    }
-  `}
-</style>
+### Views
 
-# Welcome to Storybook
-
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
-
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-<div className="subheading">Configure</div>
-
-<div className="link-list">
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/addons/addon-types"
-    target="_blank"
-  >
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
-  >
-    <img src={StackAlt} alt="Build" />
-    <span>
-      <strong>Build configuration</strong>
-      How to customize webpack and Babel
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/styling-and-css"
-    target="_blank"
-  >
-    <img src={Colors} alt="colors" />
-    <span>
-      <strong>Styling</strong>
-      How to load and configure CSS libraries
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
-    target="_blank"
-  >
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>Data</strong>
-      Providers and mocking for data libraries
-    </span>
-  </a>
-</div>
-
-<div className="subheading">Learn</div>
-
-<div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
-    <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/tutorials/"
-    target="_blank"
-  >
-    <img src={Direction} alt="direction" />
-    <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://github.com/storybookjs/storybook"
-    target="_blank"
-  >
-    <img src={Code} alt="code" />
-    <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
-    </span>
-  </a>
-  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
-    <img src={Comments} alt="comments" />
-    <span>
-      <strong>Discord chat</strong>
-      Chat with maintainers and the community
-    </span>
-  </a>
-</div>
-
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{" "}
-  <code>stories/Introduction.stories.mdx</code>
-</div>
+- windows
+  - split
+- sheets
+  - split
+- alerts
+  - primary button
+  - horizontal buttons
+  - vertical buttons
+  - pop up button
+  - action list
+- group boxes
+  - filled rounded
+    - with segmented control
+  - outline rounded
+  - outline
+- popovers
+- quick look
+- notifications
+- save dialog
+- file browser
