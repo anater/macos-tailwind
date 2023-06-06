@@ -523,6 +523,13 @@ video {
   position: relative;
 }
 
+.inset-0 {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
 .top-\[1px\] {
   top: 1px;
 }
@@ -640,6 +647,14 @@ video {
   width: 40px;
 }
 
+.w-\[120px\] {
+  width: 120px;
+}
+
+.w-\[190px\] {
+  width: 190px;
+}
+
 .max-w-max {
   max-width: -moz-max-content;
   max-width: max-content;
@@ -677,6 +692,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.items-stretch {
+  align-items: stretch;
 }
 
 .justify-center {
@@ -1190,6 +1209,11 @@ video {
   background-color: rgb(0 122 255 / var(--tw-bg-opacity));
 }
 
+.checked\:text-red-50:checked {
+  --tw-text-opacity: 1;
+  color: rgb(254 242 242 / var(--tw-text-opacity));
+}
+
 .checked\:shadow-md:checked {
   --tw-shadow: 0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24);
   --tw-shadow-colored: 0px 0.5px 3px 0px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color), 0px 0.5px 1px 0px var(--tw-shadow-color);
@@ -1292,6 +1316,50 @@ video {
 .peer:checked ~ .peer-checked\:translate-x-\[18px\] {
   --tw-translate-x: 18px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.peer:checked ~ .peer-checked\:bg-default-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 122 255 / var(--tw-bg-opacity));
+}
+
+.peer:checked ~ .peer-checked\:bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.peer:checked ~ .peer-checked\:from-transparent-white {
+  --tw-gradient-from: rgb(255 255 255 / 0.13);
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.peer:checked ~ .peer-checked\:to-transparent {
+  --tw-gradient-to: transparent;
+}
+
+.peer:checked ~ .peer-checked\:text-red-50 {
+  --tw-text-opacity: 1;
+  color: rgb(254 242 242 / var(--tw-text-opacity));
+}
+
+.peer:checked ~ .peer-checked\:text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.peer:focus ~ .peer-focus\:outline-1 {
+  outline-width: 1px;
+}
+
+.peer:focus ~ .peer-focus\:ring-1 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.peer:active ~ .peer-active\:bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 240 240 / var(--tw-bg-opacity));
 }
 
 .pressed\:bg-default-light[aria-pressed=true] {
