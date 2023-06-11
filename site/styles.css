@@ -554,6 +554,26 @@ video {
   right: 0px;
 }
 
+.right-\[-1px\] {
+  right: -1px;
+}
+
+.right-\[-2px\] {
+  right: -2px;
+}
+
+.right-\[2px\] {
+  right: 2px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.-z-\[1\] {
+  z-index: -1;
+}
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -636,6 +656,10 @@ video {
 
 .h-\[10px\] {
   height: 10px;
+}
+
+.h-\[18px\] {
+  height: 18px;
 }
 
 .w-4 {
@@ -1220,6 +1244,36 @@ video {
   color: rgb(0 0 0 / 0.25);
 }
 
+.before\:absolute::before {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:left-\[1px\]::before {
+  content: var(--tw-content);
+  left: 1px;
+}
+
+.before\:top-\[2px\]::before {
+  content: var(--tw-content);
+  top: 2px;
+}
+
+.before\:top-\[5px\]::before {
+  content: var(--tw-content);
+  top: 5px;
+}
+
+.before\:left-\[-1px\]::before {
+  content: var(--tw-content);
+  left: -1px;
+}
+
+.before\:z-\[-1\]::before {
+  content: var(--tw-content);
+  z-index: -1;
+}
+
 .before\:block::before {
   content: var(--tw-content);
   display: block;
@@ -1230,9 +1284,19 @@ video {
   height: 6px;
 }
 
+.before\:h-\[10px\]::before {
+  content: var(--tw-content);
+  height: 10px;
+}
+
 .before\:w-\[6px\]::before {
   content: var(--tw-content);
   width: 6px;
+}
+
+.before\:w-\[1px\]::before {
+  content: var(--tw-content);
+  width: 1px;
 }
 
 .before\:rounded-full::before {
@@ -1240,9 +1304,24 @@ video {
   border-radius: 9999px;
 }
 
+.before\:rounded::before {
+  content: var(--tw-content);
+  border-radius: 0.25rem;
+}
+
 .before\:bg-black\/50::before {
   content: var(--tw-content);
   background-color: rgb(0 0 0 / 0.5);
+}
+
+.before\:bg-fills-opaque-4::before {
+  content: var(--tw-content);
+  background-color: rgb(0 0 0 / 0.10);
+}
+
+.first\:before\:hidden:first-child::before {
+  content: var(--tw-content);
+  display: none;
 }
 
 .default\:bg-fills-opaque-5:default {
@@ -1264,15 +1343,36 @@ video {
   background-color: rgb(0 122 255 / var(--tw-bg-opacity));
 }
 
+.checked\:bg-white:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.checked\:text-red-500:checked {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .checked\:shadow-md:checked {
   --tw-shadow: 0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24);
   --tw-shadow-colored: 0px 0.5px 3px 0px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color), 0px 0.5px 1px 0px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.checked\:shadow-sm:checked {
+  --tw-shadow: 0px 0.25px 0.25px 0px rgb(0 0 0 / 0.15), 0px 1px 0.75px 0px rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0px 0.25px 0.25px 0px var(--tw-shadow-color), 0px 1px 0.75px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .checked\:shadow-default-light\/20:checked {
   --tw-shadow-color: rgb(0 122 255 / 0.2);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.checked\:before\:hidden:checked::before {
+  content: var(--tw-content);
+  display: none;
 }
 
 .indeterminate\:checkbox-icon:indeterminate {
@@ -1341,6 +1441,11 @@ video {
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
+.active\:bg-white:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .active\:from-transparent-black:active {
   --tw-gradient-from: rgb(0 0 0 / 0.13);
   --tw-gradient-to: rgb(0 0 0 / 0);
@@ -1349,6 +1454,10 @@ video {
 
 .active\:to-vibrant-light:active {
   --tw-gradient-to: #0070F5;
+}
+
+.active\:opacity-50:active {
+  opacity: 0.5;
 }
 
 .disabled\:pointer-events-none:disabled {
@@ -1381,6 +1490,10 @@ video {
 
 .peer:checked ~ .peer-checked\:top-0 {
   top: 0px;
+}
+
+.peer:checked ~ .peer-checked\:hidden {
+  display: none;
 }
 
 .peer:checked ~ .peer-checked\:h-full {
@@ -1427,6 +1540,22 @@ video {
 .peer:checked ~ .peer-checked\:text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.peer:checked ~ .peer-checked\:shadow-sm {
+  --tw-shadow: 0px 0.25px 0.25px 0px rgb(0 0 0 / 0.15), 0px 1px 0.75px 0px rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0px 0.25px 0.25px 0px var(--tw-shadow-color), 0px 1px 0.75px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.peer:checked ~ .peer-checked\:before\:hidden::before {
+  content: var(--tw-content);
+  display: none;
+}
+
+.peer:checked ~ .before\:peer-checked\:hidden::before {
+  content: var(--tw-content);
+  display: none;
 }
 
 .peer:empty ~ .peer-empty\:bg-fills-opaque-5 {

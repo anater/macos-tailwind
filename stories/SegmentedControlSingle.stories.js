@@ -1,42 +1,40 @@
 import "../site/styles.src.css"
 
-function Option(value) {
+function Option(value, id) {
   return `
-  <label class="group flex-1 relative text-center">
-    <input class="peer appearance-none absolute inset-0" type="radio" value=${value} name="segmented-control" />
-    <div class="
-      text-sm
-      rounded-[5px]
-      peer-active:opacity-50
-      peer-active:bg-white
-      peer-checked:bg-white"
-    >
-      ${value}
-    </div>
-    <div aria-hidden class="
-      group-last:hidden
-      absolute
-      right-0
-      top-[3px] 
-      w-[1px]
-      h-[10px]
-      bg-fills-opaque-4 
-      rounded
-      peer-active:top-0
-      peer-active:h-full
-      peer-active:rounded-none
-      peer-checked:top-0
-      peer-checked:h-full
-      peer-checked:rounded-none"
-    ></div>
-  </label>`
+  <input id="${id}-${value}" type="radio" value="${value}" name="segmented-control" class="
+    peer
+    appearance-none
+    relative
+    h-[18px]
+    flex-1
+    rounded
+    active:opacity-50
+    active:bg-white
+    checked:bg-white
+    checked:shadow-sm
+    checked:before:hidden
+    first:before:hidden
+    before:absolute
+    before:z-[-1]
+    before:left-[-1px]
+    before:top-[5px]
+    before:w-[1px]
+    before:h-[10px]
+    before:bg-fills-opaque-4
+    before:rounded
+    "
+  />`
+}
+
+function Label(value, id) {
+  return `<label for="${id}-${value}" class="flex-1 text-center text-sm">${value}</label>`
 }
 
 export default {
   title: "Controls/Segmented Control (Single)",
   tags: ["autodocs"],
   render: ({ options }) => {
-    const optionElements = options.map(Option).join("")
     return `
     <fieldset class="
       relative
@@ -49,7 +47,10 @@ export default {
       shadow-segmented-control
       bg-fills-opaque-5"
     >
-     ${optionElements}
+     ${options.map(Option).join("")}
+     <div class="absolute inset-0 w-full h-full flex items-center">
+      ${options.map(Label).join("")}
+     </div>
     </fieldset>`
   },
   argTypes: {
