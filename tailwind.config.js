@@ -30,6 +30,8 @@ module.exports = {
           "0px 0.5px 0px 0px rgb(0 0 0 / 0.06), 0px 1px 0px 0px rgb(0 0 0 / 0.12)",
         "segmented-control":
           "inset 0px 0px 2px 0px rgb(0 0 0 / 0.05), inset 0px 0px 4px 0px rgb(0 0 0 / 0.05), inset 0px 0px 2px 0px rgb(0 0 0 / 0.05)",
+        progress:
+          "inset 0px 1px 2px 0px rgba(0, 0, 0, 0.02), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.03), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.04)",
       },
       borderWidth: {
         0.5: "0.5px",
@@ -68,6 +70,7 @@ module.exports = {
   plugins: [
     plugin(({ addVariant }) => {
       addVariant("pressed", "&[aria-pressed=true]")
+      addVariant("range-thumb", "&::-webkit-slider-thumb")
     }),
   ],
 }
