@@ -6,14 +6,15 @@
     "tailwindcss": "^3.1.7"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.2",
-    "@storybook/addon-interactions": "^7.0.2",
-    "@storybook/addon-links": "^7.0.2",
-    "@storybook/addon-styling": "^1.0.0-next.1",
-    "@storybook/blocks": "^7.0.2",
-    "@storybook/html": "^7.0.2",
-    "@storybook/html-webpack5": "^7.0.2",
-    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/addon-essentials": "^7.0.22",
+    "@storybook/addon-interactions": "^7.0.22",
+    "@storybook/addon-links": "^7.0.22",
+    "@storybook/addon-mdx-gfm": "^7.0.22",
+    "@storybook/addon-styling": "^1.3.0",
+    "@storybook/blocks": "^7.0.22",
+    "@storybook/html": "^7.0.22",
+    "@storybook/html-webpack5": "^7.0.22",
+    "@storybook/testing-library": "^0.1.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.2.4",
@@ -21,7 +22,7 @@
     "prettier-plugin-tailwindcss": "^0.1.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.2"
+    "storybook": "^7.0.22"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
