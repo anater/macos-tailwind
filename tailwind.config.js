@@ -73,6 +73,8 @@ module.exports = {
       addVariant("range-thumb", "&::-webkit-slider-thumb")
       addVariant("progress-bar", "&::-webkit-progress-bar")
       addVariant("progress-value", "&::-webkit-progress-value")
+      addVariant("color-swatch-wrapper", "&::-webkit-color-swatch-wrapper")
+      addVariant("color-swatch", "&::-webkit-color-swatch")
     }),
   ],
 }
