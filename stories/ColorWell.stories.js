@@ -35,7 +35,7 @@ export default {
   },
 }
 
-export const Primary = {
+export const Default = {
   args: {
     color: "#007AFF",
     disabled: false,

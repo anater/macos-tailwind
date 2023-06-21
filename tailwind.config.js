@@ -32,6 +32,8 @@ module.exports = {
           "inset 0px 0px 2px 0px rgb(0 0 0 / 0.05), inset 0px 0px 4px 0px rgb(0 0 0 / 0.05), inset 0px 0px 2px 0px rgb(0 0 0 / 0.05)",
         progress:
           "inset 0px 1px 2px 0px rgba(0, 0, 0, 0.02), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.03), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.04)",
+        "image-well":
+          "inset 0px 0.5px 1.5px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0.5px rgb(0 0 0 / 0.06)",
       },
       borderWidth: {
         0.5: "0.5px",
@@ -75,6 +77,7 @@ module.exports = {
       addVariant("progress-value", "&::-webkit-progress-value")
       addVariant("color-swatch-wrapper", "&::-webkit-color-swatch-wrapper")
       addVariant("color-swatch", "&::-webkit-color-swatch")
+      addVariant("file-selector-button", "&::file-selector-button")
     }),
   ],
 }
