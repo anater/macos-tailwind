@@ -33,7 +33,7 @@ module.exports = {
         progress:
           "inset 0px 1px 2px 0px rgba(0, 0, 0, 0.02), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.03), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.04)",
         "image-well":
-          "inset 0px 0.5px 1.5px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0.5px rgb(0 0 0 / 0.06)",
+          "inset 0px 0.5px 1.5px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 1px rgb(0 0 0 / 0.06)",
       },
       borderWidth: {
         0.5: "0.5px",

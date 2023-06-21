@@ -1162,8 +1162,8 @@ video {
 }
 
 .shadow-image-well {
-  --tw-shadow: inset 0px 0.5px 1.5px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 0.5px rgb(0 0 0 / 0.06);
-  --tw-shadow-colored: inset 0px 0.5px 1.5px 0px var(--tw-shadow-color), 0px 0px 0px 0.5px var(--tw-shadow-color);
+  --tw-shadow: inset 0px 0.5px 1.5px 0px rgb(0 0 0 / 0.14), 0px 0px 0px 1px rgb(0 0 0 / 0.06);
+  --tw-shadow-colored: inset 0px 0.5px 1.5px 0px var(--tw-shadow-color), 0px 0px 0px 1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1716,16 +1716,6 @@ video {
 
 .color-swatch\:rounded-none::-webkit-color-swatch {
   border-radius: 0px;
-}
-
-.file-selector-button\:hidden::file-selector-button {
-  display: none;
-}
-
-.file-selector-button\:appearance-none::file-selector-button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
 
 .file-selector-button\:opacity-0::file-selector-button {
