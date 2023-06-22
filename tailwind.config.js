@@ -21,7 +21,8 @@ module.exports = {
         md: "0px 0.5px 3px 0px rgb(0 0 0 / 0.12), 0px 1px 2px 0px rgb(0 0 0 / 0.12), 0px 0.5px 1px 0px rgb(0 0 0 / 0.24)",
         tooltip:
           "0px 36px 100px 0px rgb(0 0 0 / 0.25), 0px 0px 3px 0px rgb(0 0 0 / 0.55)",
-        menu: "inset 0px 0.5px 1px 0px rgba(255 255 255 / 0.5), 0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18)",
+        menu: "0px 2px 4px 0px rgb(0 0 0 / 0.15), 0px 8px 15px 6px rgb(0 0 0 / 0.18)",
+        "menu-border": "inset 0px 0.5px 1px 0px rbg(255 255 255 / 0.5)",
         checkbox:
           "inset 0px 1px 2px 0px rgb(0 0 0 / 0.1), inset 0px 0px 2px 0px rgb(0 0 0 / 0.1)",
         switch:
@@ -54,8 +55,9 @@ module.exports = {
           dark: "#148EFF",
         },
         material: {
-          menu: "rgb(0 0 0 / 0.04)",
+          menu: "rgb(246 246 246 / 0.72)",
           tooltip: "rgb(246 246 246 / .6)",
+          selection: "rgb(10 130 255 / 0.75)",
         },
         fills: {
           opaque: {
@@ -64,6 +66,20 @@ module.exports = {
             3: "rgb(0 0 0 / 0.25)",
             4: "rgb(0 0 0 / 0.10)",
             5: "rgb(0 0 0 / 0.05)",
+          },
+        },
+        text: {
+          opaque: {
+            dark: {
+              1: "rgb(255 255 255 / 0.85)",
+              2: "rgb(255 255 255 / 0.55)",
+              3: "rgb(255 255 255 / 0.25)",
+            },
+            light: {
+              1: "rgb(0 0 0 / 0.85)",
+              2: "rgb(0 0 0 / 0.50)",
+              3: "rgb(0 0 0 / 0.25)",
+            },
           },
         },
       },
