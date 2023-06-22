@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import PopUpButtonPrimaryIcon from "./assets/PopUpButtonPrimaryIcon.svg"
 import PopUpButtonSecondaryIcon from "./assets/PopUpButtonSecondaryIcon.svg"
 

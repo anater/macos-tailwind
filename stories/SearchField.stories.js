@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import SearchFieldIcon from "./assets/SearchFieldIcon.svg"
 
 export default {

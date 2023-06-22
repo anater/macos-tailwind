@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import ClearButtonIcon from "./assets/ClearButtonIcon.svg"
 
 export default {

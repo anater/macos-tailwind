@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import ImageWellPreview from "./assets/ImageWellPreview.jpg"
 
 export default {

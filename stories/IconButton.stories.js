@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import ArrowButtonIcon from "./assets/ArrowButtonIcon.svg"
 import ArrowUpIcon from "./assets/ArrowUpIcon.svg"
 import ArrowDownIcon from "./assets/ArrowDownIcon.svg"

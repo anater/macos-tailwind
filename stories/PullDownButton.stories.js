@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import PullDownButtonPrimaryIcon from "./assets/PullDownButtonPrimaryIcon.svg"
 import PullDownButtonSecondaryIcon from "./assets/PullDownButtonSecondaryIcon.svg"
 

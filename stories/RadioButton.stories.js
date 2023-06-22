@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import RadioPrimaryIcon from "./assets/RadioPrimaryIcon.svg"
 import IndeterminatePrimaryIcon from "./assets/IndeterminatePrimaryIcon.svg"
 

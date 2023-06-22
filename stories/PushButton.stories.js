@@ -1,5 +1,3 @@
-import "../site/styles.src.css"
-
 export default {
   title: "Controls/Push Buttons",
   tags: ["autodocs"],

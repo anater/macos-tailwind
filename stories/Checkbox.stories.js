@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import CheckboxPrimaryIcon from "./assets/CheckboxPrimaryIcon.svg"
 import IndeterminatePrimaryIcon from "./assets/IndeterminatePrimaryIcon.svg"
 

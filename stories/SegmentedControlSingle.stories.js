@@ -1,5 +1,3 @@
-import "../site/styles.src.css"
-
 function Option(value, id) {
   return `
   <input id="${id}-${value}" type="radio" value="${value}" name="segmented-control" class="

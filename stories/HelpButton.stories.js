@@ -1,4 +1,3 @@
-import "../site/styles.src.css"
 import HelpButtonIcon from "./assets/HelpButtonIcon.svg"
 
 export default {

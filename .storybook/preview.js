@@ -1,3 +1,5 @@
+import "../site/styles.src.css"
+
 /** @type { import('@storybook/html').Preview } */
 const preview = {
   parameters: {
@@ -9,6 +11,6 @@ const preview = {
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview
