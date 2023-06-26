@@ -1,77 +1,3 @@
-export default {
-  title: "Lists/Menu",
-  tags: ["autodocs"],
-  render: ({ items }) => {
-    return `
-    <ul role=menu class="
-      relative
-      rounded-lg
-      w-[200px]
-      p-[5px]
-      text-base
-      text-text-opaque-light-1
-      font-normal"
-    >
-      ${items.map(MenuItem).join("")}
-      <!-- Border -->
-      <div class="
-        rounded-lg
-        absolute 
-        inset-0 
-        z-[-1]
-        border-0.5
-        border-very-transparent-black
-        shadow-menu-border"
-      ></div>
-      <!-- Material -->
-      <div class="
-        rounded-lg
-        absolute 
-        inset-0 
-        z-[-2]
-        bg-material-menu
-        backdrop-blur-[30px]
-        backdrop-saturate-100"
-      ></div>
-      <!-- Shadows -->
-      <div class="
-        rounded-lg
-        absolute 
-        inset-0 
-        z-[-3]
-        shadow-menu
-        bg-white
-        mix-blend-multiply"
-      ></div>
-    </ul>
-    <script>
-    function addArrowKeyListener(menuitem) {
-      menuitem.onblur = () => document.onkeydown = undefined
-
-      document.onkeydown = (keydownEvent) => {
-        let sibling;
-
-        switch(keydownEvent.key) {
-          case 'ArrowUp': {
-            sibling = menuitem.previousElementSibling;
-            break;
-          }
-          case 'ArrowDown': {
-            sibling = menuitem.nextElementSibling;
-            break;
-          }
-          default: break;
-        }
-        
-        if (sibling?.matches("[role=menuitem]")) sibling.focus()
-      }
-    }
-  </script>`
-  },
-  argTypes: {
-    items: [""],
-  },
-}
 const MenuItemChevron = `
 <svg width="5.31021118px" height="9.09986115px" viewBox="0 0 5.31021118 9.09986115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -96,9 +22,7 @@ const KeyBoardShortcut = (keys) => /*html*/ `
     gap-1
     items-center
     leading-4
-    text-[#C6C6C6] 
-    group-hover:text-current 
-    group-focus:text-current"
+    text-[#c6c6c6]"
   >
     ${keys
       .split("")
@@ -111,32 +35,7 @@ const KeyBoardShortcut = (keys) => /*html*/ `
       .join("")}
   </kbd>`
 
-const items = [
-  {
-    left: "New",
-    right: MenuItemChevron,
-    submenu: [],
-  },
-  {
-    left: "Text",
-    right: MenuItemChevron,
-    submenu: [],
-  },
-  {
-    separator: true,
-    left: "Make Rich Text",
-    right: KeyBoardShortcut("⇧⌘H"),
-    submenu: [],
-  },
-]
-
-export const Default = {
-  args: {
-    items,
-  },
-}
-
-function MenuItem({ left, right, separator }) {
+function MenuItem({ left, right, separator, submenu }) {
   const separatorClasses = separator
     ? "relative mt-2 before:absolute before:-top-1 before:left-2 before:right-2 before:h-[1px] before:bg-[#E8E8E8]"
     : ""
@@ -147,6 +46,7 @@ function MenuItem({ left, right, separator }) {
     onfocus="addArrowKeyListener(this)"
     class="${separatorClasses}
       group
+      relative
       flex
       items-center
       rounded-md
@@ -161,5 +61,119 @@ function MenuItem({ left, right, separator }) {
   >
     ${left ? `<span class="flex-1">${left}</span>` : ``}
     ${right ? `<span>${right}</span>` : ``}
+    ${
+      submenu?.length > 0
+        ? `<div class="hidden group-hover:block group-focus:block group-focus-within:block absolute z-1 top-0 left-full">${Menu.render(
+            { items: submenu }
+          )}</div>`
+        : ``
+    }
   </li>`
+}
+
+const Menu = {
+  title: "Lists/Menu",
+  tags: ["autodocs"],
+  render: ({ items }) => {
+    return `
+    <ul role=menu class="
+      Z-0
+      relative
+      rounded-lg
+      w-[200px]
+      p-[5px]
+      text-base
+      text-text-opaque-light-1
+      font-normal
+      shadow-menu
+      bg-material-menu
+      backdrop-blur-[30px]
+      backdrop-saturate-200
+      bg-blend-multiply"
+    >
+      ${items.map(MenuItem).join("")}
+      <!-- Border -->
+      <div class="
+        rounded-lg
+        absolute 
+        inset-0 
+        z-[-2]
+        border-0.5
+        border-very-transparent-black
+        shadow-menu-border"
+      ></div>
+    </ul>
+    <script>
+      function addArrowKeyListener(menuitem) {
+        menuitem.onblur = () => document.onkeydown = undefined
+
+        document.onkeydown = (keydownEvent) => {
+          const menuItemSelector = "[role=menuitem]";
+          
+          let sibling;
+          switch(keydownEvent.key) {
+            case 'ArrowUp': {
+              sibling = menuitem.previousElementSibling;
+              break;
+            }
+            case 'ArrowDown': {
+              sibling = menuitem.nextElementSibling;
+              break;
+            }
+            case 'ArrowRight': {
+              sibling = menuitem.querySelector(menuItemSelector);
+              break;
+            }
+            case 'ArrowLeft': {
+              sibling = menuitem.parentElement.closest(menuItemSelector);
+              break;
+            }
+            default: break;
+          }
+          
+          if (sibling?.matches(menuItemSelector)) sibling.focus()
+        }
+      }
+    </script>`
+  },
+  argTypes: {
+    items: [""],
+  },
+}
+
+export default Menu
+
+export const Default = {
+  args: {
+    items: [
+      {
+        left: "New",
+        right: MenuItemChevron,
+      },
+      {
+        left: "Text",
+        right: MenuItemChevron,
+        submenu: [
+          {
+            left: "Show Fonts",
+            right: KeyBoardShortcut("⌘T"),
+          },
+          {
+            left: "Bold",
+            right: KeyBoardShortcut("⌘B"),
+          },
+          {
+            left: "Italic",
+            right: KeyBoardShortcut("⌘I"),
+            disabled: true,
+          },
+        ],
+      },
+      {
+        separator: true,
+        left: "Make Rich Text",
+        right: KeyBoardShortcut("⇧⌘H"),
+      },
+    ],
+  },
 }
