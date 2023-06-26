@@ -89,11 +89,25 @@ const MenuItemChevron = `
   </g>
 </svg>`
 
-const KeyBoardShortcut = (keys) =>
-  `<kbd class="space-x-1 text-[#C6C6C6] text-lg group-hover:text-current group-focus:text-current">
+const upperCaseRegex = /^[A-Z]+$/
+const KeyBoardShortcut = (keys) => /*html*/ `
+  <kbd class="
+    flex
+    gap-1
+    items-center
+    leading-4
+    text-[#C6C6C6] 
+    group-hover:text-current 
+    group-focus:text-current"
+  >
     ${keys
       .split("")
-      .map((key) => `<kbd>${key}</kbd>`)
+      .map(
+        (key) =>
+          `<kbd ${
+            key.match(upperCaseRegex) ? "" : "class='text-lg'"
+          }>${key}</kbd>`
+      )
       .join("")}
   </kbd>`
 
