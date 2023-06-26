@@ -89,19 +89,11 @@ const Menu = {
       bg-material-menu
       backdrop-blur-[30px]
       backdrop-saturate-200
-      bg-blend-multiply"
+      bg-blend-multiply
+      border-0.5
+      border-very-transparent-black"
     >
       ${items.map(MenuItem).join("")}
-      <!-- Border -->
-      <div class="
-        rounded-lg
-        absolute 
-        inset-0 
-        z-[-2]
-        border-0.5
-        border-very-transparent-black
-        shadow-menu-border"
-      ></div>
     </ul>
     <script>
       function addArrowKeyListener(menuitem) {
