@@ -1,20 +1,4 @@
-import "../site/styles.src.css"
-// const ListItemChevron = `
-// <svg width="5.31021118px" height="9.09986115px" viewBox="0 0 5.31021118 9.09986115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-//   <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-//       <g id="Components---Bars,-Controls,-Menus,-and-Lists" transform="translate(-205.0579, -1690.8681)" fill="currentColor" fill-rule="nonzero">
-//           <g id="Menus" transform="translate(0, 1618)">
-//               <g id="Menu" transform="translate(20, 62)">
-//                   <g id="Font" transform="translate(5, 5)">
-//                       <g id="Right-Symbols" transform="translate(180.0579, 5.8681)">
-//                           <path d="M5.31021118,4.54888916 C5.30888875,4.32996114 5.22316233,4.13678741 5.05303192,3.96936798 L1.24880219,0.208580017 C1.10974884,0.0695266724 0.940114339,0 0.739898682,0 C0.532674154,0 0.357551575,0.07081604 0.214530945,0.21244812 C0.0715103149,0.3540802 0,0.52642568 0,0.729484558 C0,0.930758158 0.0769322713,1.10918681 0.230796814,1.26477051 L3.56807709,4.54690552 L0.230796814,7.83300781 C0.0769322713,7.98991394 0,8.1690038 0,8.3702774 C0,8.57333628 0.0715103149,8.74569829 0.214530945,8.88736343 C0.357551575,9.02902857 0.532674154,9.09986115 0.739898682,9.09986115 C0.940114339,9.09986115 1.10974884,9.03030141 1.24880219,8.89118195 L5.05303192,5.12841034 C5.14137014,5.03987376 5.2063179,4.94885763 5.24787521,4.85536194 C5.28943253,4.76186625 5.31021118,4.65970866 5.31021118,4.54888916 Z" id="Path" style="mix-blend-mode: normal;"></path>
-//                       </g>
-//                   </g>
-//               </g>
-//           </g>
-//       </g>
-//   </g>
-// </svg>`
+import addArrowKeyListener from "./scripts/addArrowKeyListener"
 
 const map = (items = [], callback = () => "", separator = "") =>
   items.length > 0 ? items.map(callback).join(separator) : ""
@@ -23,6 +7,7 @@ const HeaderItem = (header, index) => /*html*/ `
   <th class="
     ${index === 0 ? `font-semibold` : `font-normal text-text-opaque-light-2`}
     py-1
+    first:pl-5
     last:after:hidden
     after:inline-block
     after:float-right
@@ -33,12 +18,64 @@ const HeaderItem = (header, index) => /*html*/ `
     ${header}
   </th>`
 
-const ListItem = ({ labels, subitems }) => /*html*/ `
-  <tr class="even:bg-[#f9f9f9]">
-    <td aria-hidden></td>
-    ${map(labels, (l) => `<td class="py-1">${l}</td>`)}
+const ListItemChevron = `
+  <svg width="4.00458527px" height="6.54709625px" viewBox="0 0 4.00458527 6.54709625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>Path</title>
+      <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.425">
+          <g id="Components---Bars,-Controls,-Menus,-and-Lists" transform="translate(-28.421, -2215.5553)" fill="currentColor" fill-rule="nonzero">
+              <g id="Lists" transform="translate(20, 2147)">
+                  <g id="Standard-List" transform="translate(0, 33)">
+                      <g id="Column-A" transform="translate(0, 27)">
+                          <g id="Content-Type" transform="translate(8.421, 3)">
+                              <g id="Chevron" transform="translate(0, 5.5553)">
+                                  <path d="M4.00458527,3.27186584 C4.00234222,3.04646301 3.91069794,2.84548187 3.7296524,2.66892242 L1.21261597,0.199813843 C1.07940674,0.0666046143 0.91582489,0 0.721870422,0 C0.524345398,0 0.354652405,0.0697975159 0.212791443,0.209392548 C0.070930481,0.348987579 0,0.516105652 0,0.710746765 C0,0.910743713 0.0789642334,1.08700562 0.2368927,1.23953247 L2.3396759,3.26850128 L0.2368927,5.30419922 C0.0789642334,5.45896912 0,5.63635254 0,5.83634949 C0,6.0309906 0.070930481,6.19810867 0.212791443,6.3377037 C0.354652405,6.47729874 0.524345398,6.54709625 0.721870422,6.54709625 C0.91582489,6.54709625 1.07940674,6.48049164 1.21261597,6.34728241 L3.7296524,3.87480927 C3.82770538,3.78055573 3.89804077,3.68523788 3.94065857,3.58885574 C3.98327637,3.4924736 4.00458527,3.3868103 4.00458527,3.27186584 Z" id="Path"></path>
+                              </g>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+          </g>
+      </g>
+  </svg>`
+
+const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
+  <tr
+    role="treeitem"
+    tabindex=0 
+    aria-expanded="${level === 0}"
+    data-level=${level}
+    onfocus="addArrowKeyListener(this)"
+    style="--level: calc(25px * ${level})"
+    class="
+      group
+      hidden
+      outline-none
+      expanded:table-row
+      even:bg-[#f9f9f9]
+      focus:bg-default-light
+      focus:text-white"
+  >
+    ${map(
+      labels,
+      (l, i) => /*html*/ `
+        <td class="p-0"><div class="flex items-center">
+          ${
+            i === 0
+              ? `<span class="pl-[var(--level)] mx-2 group-expanded:rotate-45">${
+                  subitems.length ? ListItemChevron : ""
+                }</span>`
+              : ``
+          }
+          <span class="
+            flex-1
+            py-1
+            border-b-[1px]
+            border-b-fills-opaque-5"
+          >${l}<span>
+        </div></td>`
+    )}
   </tr>
-  ${map(subitems, ListItem)}`
+  ${map(subitems, (item) => ListItem(item, level + 1))}`
 
 const LargeList = {
   title: "Lists/Large List",
@@ -47,14 +84,16 @@ const LargeList = {
     return `
     <table class="w-full bg-white text-text-opaque-light-1">
       <thead class="text-left text-sm"><tr class="border-b-[1px] border-b-fills-opaque-5">
-        <th aria-hidden></th>
         <!-- FIXME: add carat for sorting -->
         ${map(headers, HeaderItem)}
       </tr></thead>
-      <tbody class="text-sm">
-        ${map(items, ListItem)}
+      <tbody class="text-sm" role="tree">
+        ${map(items, (item) => ListItem(item))}
       </tbody>
-    </table>`
+    </table>
+    <script>
+      ${addArrowKeyListener.toString()}
+    </script>`
   },
   argTypes: {
     headers: [""],
@@ -67,9 +106,12 @@ export default LargeList
 export const Default = {
   args: {
     headers: Array(3).fill("Header"),
-    items: Array(6).fill({
+    items: Array(3).fill({
       labels: Array(3).fill("Label"),
-      subitems: [{ labels: Array(3).fill("Sub Label"), subitems: [] }],
+      subitems: Array(3).fill({
+        labels: Array(3).fill("Sub Label"),
+        subitems: [{ labels: Array(3).fill("Sub Sub Label"), subitems: [] }],
+      }),
     }),
   },
 }
