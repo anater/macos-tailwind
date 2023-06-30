@@ -38,7 +38,8 @@ const ListItemChevron = `
       </g>
   </svg>`
 
-const Chevron = `<span
+const Chevron = `
+<span
   class="pl-[var(--level)] mx-2"
   onclick="
     const item = this.closest('[role=treeitem]');
@@ -49,30 +50,31 @@ const Chevron = `<span
 </span>`
 
 const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
-  <tr
-    role="treeitem"
-    tabindex=0 
-    aria-expanded="true"
-    data-level="${level}"
-    onfocus="addArrowKeyListener(this)"
-    style="--level: calc(25px * ${level})"
-    class="
-      group
-      outline-none
-      aria-hidden:hidden
-      even:bg-[#f9f9f9]
-      focus:bg-default-light
-      focus:text-white"
-  >
-    ${map(
-      labels,
-      (label, index) => /*html*/ `
-        <td class="p-0"><div class="flex items-center">
+<tr
+  role="treeitem"
+  tabindex=0 
+  aria-expanded="true"
+  data-level="${level}"
+  onfocus="addArrowKeyListener(this)"
+  style="--level: calc(25px * ${level})"
+  class="
+    group
+    outline-none
+    aria-hidden:hidden
+    even:bg-[#f9f9f9]
+    focus:bg-default-light
+    focus:text-white"
+>
+  ${map(
+    labels,
+    (label, index) => /*html*/ `
+      <td class="p-0">
+        <div class="flex items-center">
           ${
             index === 0
               ? subitems.length
                 ? Chevron
-                : `<span class="pl-[var(--level)] mx-2"></span>`
+                : /*html*/ `<span class="pl-[var(--level)] mx-2"></span>`
               : ``
           }
           <span class="
@@ -80,11 +82,14 @@ const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
             py-1
             border-b-[1px]
             border-b-fills-opaque-5"
-          >${label}<span>
-        </div></td>`
-    )}
-  </tr>
-  ${map(subitems, (item) => ListItem(item, level + 1))}`
+          >
+            ${label}
+          </span>
+        </div>
+      </td>`
+  )}
+</tr>
+${map(subitems, (item) => ListItem(item, level + 1))}`
 
 const LargeList = {
   title: "Lists/Large List",
@@ -101,8 +106,8 @@ const LargeList = {
       </tbody>
     </table>
     <script>
-      ${addArrowKeyListener.toString()}
-      ${expand.toString()}
+    ${addArrowKeyListener.toString()}
+    ${expand.toString()}
     </script>`
   },
   argTypes: {
