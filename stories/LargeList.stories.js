@@ -1,4 +1,4 @@
-import addArrowKeyListener from "./scripts/addArrowKeyListener"
+import { addArrowKeyListener, expand } from "./scripts/LargeList"
 
 const map = (items = [], callback = () => "", separator = "") =>
   items.length > 0 ? items.map(callback).join(separator) : ""
@@ -42,15 +42,17 @@ const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
   <tr
     role="treeitem"
     tabindex=0 
-    aria-expanded="${level === 0}"
-    data-level=${level}
+    aria-expanded="true"
+    data-level="${level}"
     onfocus="addArrowKeyListener(this)"
+    onclick="
+      const isExpanded = this.getAttribute('aria-expanded') === 'true'
+      expand(this, !isExpanded)"
     style="--level: calc(25px * ${level})"
     class="
       group
-      hidden
       outline-none
-      expanded:table-row
+      aria-hidden:hidden
       even:bg-[#f9f9f9]
       focus:bg-default-light
       focus:text-white"
@@ -93,6 +95,7 @@ const LargeList = {
     </table>
     <script>
       ${addArrowKeyListener.toString()}
+      ${expand.toString()}
     </script>`
   },
   argTypes: {

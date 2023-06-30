@@ -89,6 +89,8 @@ module.exports = {
     plugin(({ addVariant }) => {
       addVariant("pressed", "&[aria-pressed=true]")
       addVariant("expanded", "&[aria-expanded=true]")
+      addVariant("collapsed", "&[aria-expanded=false]")
+      addVariant("aria-hidden", "&[aria-hidden]")
       addVariant("range-thumb", "&::-webkit-slider-thumb")
       addVariant("progress-bar", "&::-webkit-progress-bar")
       addVariant("progress-value", "&::-webkit-progress-value")
