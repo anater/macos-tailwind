@@ -19,7 +19,7 @@ const HeaderItem = (header, index) => /*html*/ `
   </th>`
 
 const ListItemChevron = `
-  <svg width="4.00458527px" height="6.54709625px" viewBox="0 0 4.00458527 6.54709625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="4.00458527px" height="6.54709625px" viewBox="0 0 4.00458527 6.54709625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="rotate-90">
       <title>Path</title>
       <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.425">
           <g id="Components---Bars,-Controls,-Menus,-and-Lists" transform="translate(-28.421, -2215.5553)" fill="currentColor" fill-rule="nonzero">
@@ -38,6 +38,16 @@ const ListItemChevron = `
       </g>
   </svg>`
 
+const Chevron = `<span
+  class="pl-[var(--level)] mx-2"
+  onclick="
+    const item = this.closest('[role=treeitem]');
+    const isExpanded = item.getAttribute('aria-expanded') === 'true'
+    expand(item, !isExpanded)"
+>
+  ${ListItemChevron}
+</span>`
+
 const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
   <tr
     role="treeitem"
@@ -45,9 +55,6 @@ const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
     aria-expanded="true"
     data-level="${level}"
     onfocus="addArrowKeyListener(this)"
-    onclick="
-      const isExpanded = this.getAttribute('aria-expanded') === 'true'
-      expand(this, !isExpanded)"
     style="--level: calc(25px * ${level})"
     class="
       group
@@ -59,13 +66,13 @@ const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
   >
     ${map(
       labels,
-      (l, i) => /*html*/ `
+      (label, index) => /*html*/ `
         <td class="p-0"><div class="flex items-center">
           ${
-            i === 0
-              ? `<span class="pl-[var(--level)] mx-2 group-expanded:rotate-45">${
-                  subitems.length ? ListItemChevron : ""
-                }</span>`
+            index === 0
+              ? subitems.length
+                ? Chevron
+                : `<span class="pl-[var(--level)] mx-2"></span>`
               : ``
           }
           <span class="
@@ -73,7 +80,7 @@ const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
             py-1
             border-b-[1px]
             border-b-fills-opaque-5"
-          >${l}<span>
+          >${label}<span>
         </div></td>`
     )}
   </tr>

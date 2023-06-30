@@ -38,8 +38,8 @@ export function addArrowKeyListener(item) {
 }
 
 export function expand(element, isExpanded) {
-  console.log("expand", element, isExpanded)
   element.setAttribute("aria-expanded", isExpanded)
+  expandChevron(element, isExpanded)
 
   const level = Number(element.dataset.level)
   let sibling = element.nextElementSibling
@@ -56,11 +56,23 @@ export function expand(element, isExpanded) {
     const reveal = isExpanded && siblingLevel === level + 1
     const hide = !isExpanded && siblingLevel > level
 
-    if (reveal) sibling.removeAttribute("aria-hidden")
-    else if (hide) sibling.setAttribute("aria-hidden", "")
+    if (reveal) {
+      sibling.removeAttribute("aria-hidden")
+      expandChevron(sibling, false)
+    } else if (hide) {
+      sibling.setAttribute("aria-hidden", "")
+      expandChevron(sibling, false)
+    }
 
     sibling = sibling.nextElementSibling
   }
 
   return element
+
+  function expandChevron(element, isExpanded) {
+    const chevron = element.querySelector("svg")
+    if (!chevron) return
+
+    chevron.classList.toggle("rotate-90", isExpanded)
+  }
 }
