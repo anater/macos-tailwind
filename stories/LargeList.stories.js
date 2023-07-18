@@ -1,22 +1,62 @@
 import { addArrowKeyListener, expand } from "./scripts/LargeList"
+import ListHeaderChevronDownIcon from "./assets/ListHeaderChevronDownIcon.svg"
 
 const map = (items = [], callback = () => "", separator = "") =>
   items.length > 0 ? items.map(callback).join(separator) : ""
 
-const HeaderItem = (header, index) => /*html*/ `
-  <th class="
-    ${index === 0 ? `font-semibold` : `font-normal text-text-opaque-light-2`}
-    py-1
-    first:pl-5
-    last:after:hidden
-    after:inline-block
-    after:float-right
-    after:mr-2
-    after:w-[1px]
-    after:h-4
-    after:bg-fills-opaque-4">
-    ${header}
+const HeaderItem = (header, sort) => {
+  let iconSortClass
+  switch (sort) {
+    case "ascending":
+      iconSortClass = "rotate-180"
+      break
+    case "descending":
+      iconSortClass = ""
+      break
+    default:
+      iconSortClass = "hidden"
+      break
+  }
+
+  return /*html*/ `
+  <th ${sort ? `aria-sort="${sort}"` : ``}
+    onclick="
+      const dir = this.getAttribute('aria-sort')
+      if (dir) {
+        const isDescending = dir === 'descending'
+        this.setAttribute('aria-sort', isDescending ? 'ascending' : 'descending')
+        this.querySelector('.HeaderItemIcon')?.classList.toggle('rotate-180', isDescending)
+      } else {
+        // unset sort state from previous header
+        const prevHeader = this.parentElement.querySelector('[aria-sort]')
+        prevHeader.removeAttribute('aria-sort')
+        prevHeader.querySelector('.HeaderItemIcon')?.classList.add('hidden')
+        // set initial sort state on this header
+        this.setAttribute('aria-sort', 'descending')
+        this.querySelector('.HeaderItemIcon')?.classList.remove('hidden')
+      }"
+    class="
+      font-normal
+      text-text-opaque-light-2
+      group
+      select-none
+      cursor-pointer
+      py-1
+      first:pl-5
+      aria-sort:font-semibold
+      aria-sort:text-text-opaque-light-1"
+  >
+    <div class="flex items-center">
+      <span class="mr-auto">${header}</span>
+      <img ${sort ? `` : `aria-hidden`}
+        alt=""
+        class="HeaderItemIcon ${iconSortClass}"
+        src="${ListHeaderChevronDownIcon}"
+      />
+      <div aria-hidden class="mx-2 w-[1px] h-4 bg-fills-opaque-4 group-last:hidden"></div>
+    </div>
   </th>`
+}
 
 const ListItemChevron = `
   <svg width="4.00458527px" height="6.54709625px" viewBox="0 0 4.00458527 6.54709625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="rotate-90">
@@ -39,15 +79,15 @@ const ListItemChevron = `
   </svg>`
 
 const Chevron = `
-<span
-  class="pl-[var(--level)] mx-2"
+<div
+  class="pl-[var(--level)] mx-2 h-4 flex items-center"
   onclick="
     const item = this.closest('[role=treeitem]');
     const isExpanded = item.getAttribute('aria-expanded') === 'true'
     expand(item, !isExpanded)"
 >
   ${ListItemChevron}
-</span>`
+</div>`
 
 const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
 <tr
@@ -58,10 +98,14 @@ const ListItem = ({ labels, subitems }, level = 0) => /*html*/ `
   onfocus="addArrowKeyListener(this)"
   style="--level: calc(25px * ${level})"
   class="
+    ListItem
     group
     outline-none
+    select-none
+    cursor-pointer
+    bg-white
+    text-black
     aria-hidden:hidden
-    even:bg-[#f9f9f9]
     focus:bg-default-light
     focus:text-white"
 >
@@ -96,19 +140,25 @@ const LargeList = {
   tags: ["autodocs"],
   render: ({ headers, items }) => {
     return `
+    <script>
+    ${addArrowKeyListener}
+    ${expand}
+    </script>
+
+    <style>
+      .ListItem:nth-child(even of :not([aria-hidden])):not(:focus) {
+        background-color: #f9f9f9;
+      }
+    </style>
+  
     <table class="w-full bg-white text-text-opaque-light-1">
       <thead class="text-left text-sm"><tr class="border-b-[1px] border-b-fills-opaque-5">
-        <!-- FIXME: add carat for sorting -->
-        ${map(headers, HeaderItem)}
+        ${map(headers, (text, i) => HeaderItem(text, i === 0 && "descending"))}
       </tr></thead>
       <tbody class="text-sm" role="tree">
         ${map(items, (item) => ListItem(item))}
       </tbody>
-    </table>
-    <script>
-    ${addArrowKeyListener.toString()}
-    ${expand.toString()}
-    </script>`
+    </table>`
   },
   argTypes: {
     headers: [""],
