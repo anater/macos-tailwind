@@ -1,8 +1,6 @@
+import { map } from "./helpers"
 import { addArrowKeyListener, expand } from "./scripts/LargeList"
 import ListHeaderChevronDownIcon from "./assets/ListHeaderChevronDownIcon.svg"
-
-const map = (items = [], callback = () => "", separator = "") =>
-  items.length > 0 ? items.map(callback).join(separator) : ""
 
 const HeaderItem = (header, sort) => {
   let iconSortClass
