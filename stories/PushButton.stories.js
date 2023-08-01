@@ -42,6 +42,7 @@ export default {
           px-2
           text-sm
           shadow-md
+          bg-white
           active:bg-gray-100"
         >
           Secondary
