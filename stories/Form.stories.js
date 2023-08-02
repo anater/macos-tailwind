@@ -37,7 +37,6 @@ export default {
           [
             `<label>A checkbox</label>`,
             SwitchStories.render({
-              small: true,
               checked: true,
               disabled: false,
             }),
