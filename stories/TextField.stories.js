@@ -14,12 +14,10 @@ export default {
       justify-between
       items-center
       bg-white
-      border-0.5
-      border-black/10
       shadow-field
       text-base
       font-light
-      ring-default-light/50
+      ring-default-light/30
       focus-within:ring"
     >
       <input ${disabledAttr}
@@ -32,7 +30,7 @@ export default {
           py-0.5
           pl-[7px]
           placeholder:text-base
-          placeholder:text-black/25
+          placeholder:text-text-opaque-light-3
           "
         oninput="this.nextElementSibling.classList.toggle('opacity-0', this.value.length === 0)"
       />

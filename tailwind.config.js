@@ -28,7 +28,7 @@ module.exports = {
         switch:
           "inset 0px 0px 1px 0px rgb(0 0 0 / 0.05), inset 0px 0px 2px 0.25px rgb(0 0 0 / 0.08)",
         field:
-          "0px 0.5px 0px 0px rgb(0 0 0 / 0.06), 0px 1px 0px 0px rgb(0 0 0 / 0.12)",
+          "0px 0px 0px 0.5px rgba(0, 0, 0, 0.05), 0px 0.5px 2.5px 0px rgba(0, 0, 0, 0.3)",
         "segmented-control":
           "inset 0px 0px 2px 0px rgb(0 0 0 / 0.05), inset 0px 0px 4px 0px rgb(0 0 0 / 0.05), inset 0px 0px 2px 0px rgb(0 0 0 / 0.05)",
         progress:
