@@ -9,34 +9,7 @@ export default {
   tags: ["autodocs"],
   render: ({}) => {
     return `
-    <form class="p-4 w-[460px]">
-      ${FormGroup({
-        rows: [
-          [
-            `<label>Title</label>`,
-            SwitchStories.render({
-              small: true,
-              checked: true,
-              disabled: false,
-            }),
-          ],
-          [
-            `<label>Title</label>`,
-            SliderStories.render({
-              disabled: false,
-              initialValue: 50,
-            }),
-          ],
-          [
-            `<label>Title</label>`,
-            SliderTickedStories.render({
-              initialValue: 0,
-              disabled: false,
-            }),
-          ],
-        ],
-      })}
-
+    <form class="w-[460px]" onsubmit="event.preventDefault()">
       ${FormGroup({
         rows: [
           [
@@ -44,9 +17,43 @@ export default {
               <label>Title</label>
               <span class="text-sm text-text-opaque-light-2">Subtitle</span>
             </div>`,
-            PushButtonStories.render({
+            `<div class="flex gap-2">
+              ${PushButtonStories.render({
+                label: "Save",
+                disabled: false,
+                primary: true,
+              })}
+              ${PushButtonStories.render({
+                label: "Cancel",
+                disabled: false,
+                primary: false,
+              })}
+            </div>`,
+          ],
+        ],
+      })}
+      ${FormGroup({
+        rows: [
+          [
+            `<label>A checkbox</label>`,
+            SwitchStories.render({
+              small: true,
+              checked: true,
               disabled: false,
-              primary: false,
+            }),
+          ],
+          [
+            `<label>A slider</label>`,
+            SliderStories.render({
+              disabled: false,
+              initialValue: 50,
+            }),
+          ],
+          [
+            `<label>A different slider</label>`,
+            SliderTickedStories.render({
+              initialValue: 0,
+              disabled: false,
             }),
           ],
         ],
