@@ -1,7 +1,7 @@
 export default {
   title: "Controls/Push Buttons",
   tags: ["autodocs"],
-  render: ({ primary, disabled }) => {
+  render: ({ primary, disabled, label }) => {
     return disabled
       ? `
         <button disabled class="
@@ -14,7 +14,7 @@ export default {
           disabled:pointer-events-none
           disabled:opacity-40"
         >
-          Disabled
+          ${label}
         </button>
         `
       : primary
@@ -33,7 +33,7 @@ export default {
           to-transparent
           active:from-transparent-black"
         >
-          Primary
+          ${label}
         </button>`
       : `
         <button class="
@@ -45,10 +45,11 @@ export default {
           bg-white
           active:bg-gray-100"
         >
-          Secondary
+          ${label}
         </button>`
   },
   argTypes: {
+    label: "Button",
     primary: false,
     disabled: false,
   },
@@ -56,6 +57,7 @@ export default {
 
 export const Primary = {
   args: {
+    label: "Primary",
     primary: true,
     disabled: false,
   },
@@ -63,6 +65,7 @@ export const Primary = {
 
 export const Secondary = {
   args: {
+    label: "Secondary",
     primary: false,
     disabled: false,
   },
@@ -70,6 +73,7 @@ export const Secondary = {
 
 export const Disabled = {
   args: {
+    label: "Disabled",
     primary: false,
     disabled: true,
   },
