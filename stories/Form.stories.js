@@ -9,16 +9,14 @@ export default {
   tags: ["autodocs"],
   render: ({ groups }) => {
     return `
-    <form class="w-[460px]" onsubmit="event.preventDefault()">
+    <form class="w-[460px] space-y-4" onsubmit="event.preventDefault()">
       ${map(groups, ({ rows }) => {
         return `<!-- Form Group -->
         <fieldset class="
-          mt-4
           rounded-md 
           bg-[rgba(0,0,0,0.03)] 
           border 
-          border-[rgba(0,0,0,0.04)]
-          first:mt-0"
+          border-[rgba(0,0,0,0.04)]"
         >
           ${map(rows, ({ left, right }) => {
             return `<!-- Form Row -->
